@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Enter Marks</title>
+<style>
+body {
+	font-family: Arial, sans-serif;
+	background: url('/img/backgroundimage2.jpeg') no-repeat center center fixed;
+	background-size: cover;
+	margin: 0;
+	padding: 0;
+	color: #333;
+}
+
+.container {
+	width: 80%;
+	max-width: 800px;
+	margin: 50px auto;
+	padding: 20px;
+	background-color: rgba(255, 255, 255, 0.9);
+	/* White background with slight transparency */
+	border-radius: 8px;
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+	text-align: center;
+	color: #333;
+	margin-bottom: 20px;
+}
+
+form {
+	display: flex;
+	flex-direction: column;
+}
+
+.form-row {
+	display: flex;
+	align-items: center;
+	margin-bottom: 15px;
+}
+
+label {
+	margin-bottom: 5px;
+	font-weight: bold;
+	color: #555;
+	flex: 1;
+}
+
+input[type="number"] {
+	padding: 8px;
+	border: 1px solid #ddd;
+	border-radius: 4px;
+	width: calc(50% - 10px);
+	margin-right: 10px;
+}
+
+input[type="number"]:focus {
+	border-color: #007bff;
+	outline: none;
+}
+
+button {
+	padding: 10px 20px;
+	background-color: #007bff;
+	color: #fff;
+	border: none;
+	border-radius: 4px;
+	cursor: pointer;
+	font-size: 16px;
+	align-self: center;
+	transition: background-color 0.3s;
+}
+
+button:hover {
+	background-color: #0056b3;
+}
+</style>
+</head>
+<body>
+	<div class="container">
+		<h1>Enter Marks for Each Subject</h1>
+		<form th:action="@{/calculate}" method="post">
+			<input type="hidden" name="subjects" th:value="${subjects}">
+
+			<div th:each="i : ${#numbers.sequence(1, subjects)}" class="form-row">
+				<label th:for="'marks' + ${i}">Marks Obtained in Subject
+					[[${i}]]:</label> <input type="number" th:id="'marks' + ${i}" name="marks"
+					required> <label th:for="'totalMarks' + ${i}">Out
+					of:</label> <input type="number" th:id="'totalMarks' + ${i}"
+					name="totalMarks" required>
+			</div>
+
+			<button type="submit">Calculate Percentage</button>
+		</form>
+	</div>
+</body>
+</html>

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Result</title>
+<style>
+/* Reset default browser styles */
+body {
+	margin: 0;
+	padding: 0;
+	font-family: Arial, sans-serif;
+	background: url('/img/backgroundimage1.jpeg') no-repeat center center
+		fixed;
+	background-size: cover;
+	color: #333;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 100vh; /* Full viewport height */
+	text-align: center;
+}
+
+.container {
+	background: #fff; /* White background for the result area */
+	border-radius: 8px; /* Rounded corners */
+	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Subtle shadow */
+	padding: 30px;
+	width: 100%;
+	max-width: 500px; /* Maximum width for the container */
+	margin: 20px;
+}
+
+h1 {
+	color: #007bff; /* Blue color for the heading */
+	margin-bottom: 20px;
+	font-size: 28px;
+}
+
+h2 {
+	color: #28a745; /* Green color for the percentage */
+	margin: 20px 0;
+	font-size: 24px;
+}
+
+p {
+	font-size: 18px;
+	margin: 10px 0;
+	color: #555; /* Dark gray for paragraphs */
+}
+
+a {
+	display: inline-block;
+	margin-top: 20px;
+	text-decoration: none;
+	color: #007bff; /* Blue color for the link */
+	font-size: 18px;
+	padding: 10px 20px;
+	border: 1px solid #007bff; /* Border matching the link color */
+	border-radius: 4px;
+	transition: background-color 0.3s, color 0.3s;
+}
+
+a:hover {
+	background-color: #007bff; /* Blue background on hover */
+	color: #fff; /* White text on hover */
+}
+</style>
+</head>
+<body>
+	<div class="container">
+		<h1>Percentage Result</h1>
+		<p>Total Marks Obtained: [[${totalObtained}]]</p>
+		<p>Total Possible Marks: [[${totalPossible}]]</p>
+		<h2>Your Percentage: [[${percentage}]]%</h2>
+		<a href="/">Calculate Again</a>
+	</div>
+</body>
+</html>

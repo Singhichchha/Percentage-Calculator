@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Percentage Calculator</title>
+<style>
+/* Reset some default browser styles */
+body {
+	margin: 0;
+	padding: 0;
+	font-family: Arial, sans-serif;
+	background: url('/img/backgroundimage.jpeg') no-repeat center center fixed;
+	background-size: cover;
+	color: #333;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 100vh; /* Full viewport height */
+	text-align: center;
+}
+
+.container {
+	background: #fff; /* White background for the form */
+	border-radius: 8px; /* Rounded corners */
+	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+	/* Shadow for a floating effect */
+	padding: 20px;
+	width: 100%;
+	max-width: 400px; /* Maximum width for the form */
+	margin: 20px;
+}
+
+h1 {
+	color: #007bff; /* Blue color for the heading */
+	margin-bottom: 20px;
+	font-size: 24px;
+}
+
+label {
+	display: block;
+	font-weight: bold;
+	margin-bottom: 10px;
+	color: #555; /* Dark gray for labels */
+}
+
+input[type="number"] {
+	width: calc(100% - 22px); /* Full width minus padding and border */
+	padding: 10px;
+	border: 1px solid #ddd; /* Light gray border */
+	border-radius: 4px; /* Rounded corners for input fields */
+	box-sizing: border-box;
+	/* Includes padding and border in width calculation */
+	font-size: 16px;
+	margin-bottom: 20px;
+}
+
+button {
+	background-color: #007bff; /* Blue background */
+	color: #fff; /* White text */
+	border: none;
+	border-radius: 4px;
+	padding: 10px 20px;
+	font-size: 16px;
+	cursor: pointer;
+	transition: background-color 0.3s;
+	/* Smooth transition for hover effect */
+}
+
+button:hover {
+	background-color: #0056b3; /* Darker blue on hover */
+}
+</style>
+</head>
+<body>
+	<div class="container">
+		<h1>Percentage Calculator</h1>
+		<form th:action="@{/calculate}" method="post">
+			<label for="subjects">Number of Subjects:</label> <input
+				type="number" id="subjects" name="subjects" min="1" required>
+			<button type="submit">Next</button>
+		</form>
+	</div>
+</body>
+</html>
